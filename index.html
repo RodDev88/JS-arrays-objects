@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* Estilos minimalistas */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      h1 {
+        font-size: 2rem;
+        color: #0073e6;
+        margin-bottom: 1.5rem;
+      }
+
+      #productos {
+        display: grid;
+        gap: 1rem;
+        width: 90%;
+        max-width: 600px;
+      }
+
+      .producto {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 1rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .producto:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .producto h2 {
+        margin: 0;
+        font-size: 1.25rem;
+        color: #0073e6;
+      }
+
+      .producto p {
+        margin: 0.5rem 0 0;
+        font-size: 1rem;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Título principal -->
+    <h1>Lista de Productos</h1>
+
+    <!-- Contenedor para los productos -->
+    <div id="productos"></div>
+
+    <script>
+      const productos = [
+        {
+          id: 1,
+          nombre: "Item 1",
+          precio: "12000",
+        },
+        {
+          id: 2,
+          nombre: "Item 2",
+          precio: "14000",
+        },
+      ];
+
+      let html = "";
+      for (let producto of productos) {
+        html += `<div id="${producto.id}" class="producto">
+          <h2>${producto.nombre}</h2>
+          <p>$${producto.precio}</p>
+        </div>`;
+      }
+
+      const ele = document.querySelector("#productos");
+      if (ele) {
+        ele.innerHTML = html;
+      } else {
+        console.error("Elemento con id 'productos' no encontrado.");
+      }
+    </script>
+  </body>
+</html>
